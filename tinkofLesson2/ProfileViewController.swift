@@ -54,10 +54,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         writeLogs(methodName: #function)
-        profileInitialize()
+        profileUIelementsInitialize()
         
     }
-    
+    override func viewWillLayoutSubviews() {
+        changingBorders()
+    }
     override func viewDidAppear(_ animated: Bool) {
         writeLogs(methodName: #function)
         // размер фрэйма поменялся по той причине, что был у нас один дефолтный экран со своими размерами (если я правильно понимаю то это размеры экрана который в мэйнсториборд, но могу ошибаться) а потом мы его меняем на тот с которого хотим запустить... поэтому и размеры меняются
@@ -74,8 +76,17 @@ class ProfileViewController: UIViewController {
         print(editButton?.frame.width ?? "not inited == nil")
     }
     
-    func profileInitialize() {
+    func profileUIelementsInitialize() {
         profileImage.image = #imageLiteral(resourceName: "userProfileImage")
+        
+        editButton.layer.borderColor = UIColor.black.cgColor
+        editButton.layer.borderWidth = 1
+        
+        nameLabel.text = "Andrew Monin"
+        descriptionLabel.text = "Passing the IOS classes in FintechTinkoff \nSwift developing is favourite subject \nAnd smth more to expand the description label..."
+    }
+    
+    func changingBorders() {
         addUserPhotoButton.layer.cornerRadius = addUserPhotoButton.frame.width / 2
         profileImage.layer.cornerRadius = addUserPhotoButton.frame.width / 2
         profileImage.layer.masksToBounds = true
@@ -87,9 +98,8 @@ class ProfileViewController: UIViewController {
             right: addUserPhotoButton.frame.height/4
         )
         
-        editButton.layer.borderColor = UIColor.black.cgColor
-        editButton.layer.borderWidth = 1
         editButton.layer.cornerRadius = editButton.frame.height / 4.5
+
     }
 }
 
