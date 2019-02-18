@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var addUserPhotoButton: UIButton!
     
@@ -22,9 +22,43 @@ class ProfileViewController: UIViewController {
         
     }
     
+    // MARK: - pphoto picking
+    
     @IBAction func addUserPhotoButtonTap(_ sender: Any) {
         print("Choose profile photo")
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let actSheet = UIAlertController(title: "Источник фото", message: "Выберете, как бы вы хотели импортировать фото", preferredStyle: .actionSheet)
+        
+        actSheet.addAction(UIAlertAction(title: "Камера", style: .default, handler: { (action: UIAlertAction) in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actSheet.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { (action: UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actSheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        self.present(actSheet, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        profileImage.image = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     @IBOutlet weak var profileImage: UIImageView!
     
