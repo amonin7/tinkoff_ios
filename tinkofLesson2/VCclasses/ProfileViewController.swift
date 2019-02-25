@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func editButtonTap(_ sender: Any) {
         
     }
-    
+        
     // MARK: - pphoto picking
     
     @IBAction func addUserPhotoButtonTap(_ sender: Any) {
@@ -87,8 +87,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //addUserPhotoButton.isHidden = true
         writeLogs(methodName: #function)
+        navigationItem.title = "Profile"
         profileUIelementsInitialize()
+        swipe()
         
     }
     override func viewWillLayoutSubviews() {
@@ -98,10 +101,39 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         writeLogs(methodName: #function)
         // размер фрэйма поменялся по той причине, что был у нас один дефолтный экран со своими размерами (если я правильно понимаю то это размеры экрана который в мэйнсториборд, но могу ошибаться) а потом мы его меняем на тот с которого хотим запустить... поэтому и размеры меняются
     }
-
     
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.up {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.down {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
-    
+    func swipe() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeUp.direction = .up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+    }
     
     // MARK: - helpfull functions
     
