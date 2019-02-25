@@ -80,11 +80,13 @@
                         <viewLayoutGuide key="safeArea" id="LTN-uB-NwY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TEE-hK-bA5">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="MwS-6b-smo">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Ad-6q-vN5">
+                        <barButtonItem key="rightBarButtonItem" id="MwS-6b-smo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="1Ad-6q-vN5">
                                 <rect key="frame" x="222" y="6" width="137" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="userIcon32"/>
+                                <state key="normal" image="userIcon32">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
                                 <connections>
                                     <action selector="profileButton:" destination="r6n-89-Arw" eventType="touchUpInside" id="al5-3v-a8v"/>
                                 </connections>
