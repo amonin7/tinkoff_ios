@@ -11,6 +11,10 @@ import UIKit
 class ThemesViewController: UIViewController {
     
     var model: Themes?
+    
+    typealias ourClosure = (_ infoToReturn :UIColor) ->()
+    
+    var colorToReturn: ourClosure?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +38,23 @@ class ThemesViewController: UIViewController {
     @IBAction func theme1Picked(_ sender: UIButton) {
         self.view.backgroundColor = model?.theme1
         UserDefaults.saveColorToUD(color: (model?.theme1)!)
+        
+        guard let returningFunctionForcolor = colorToReturn else {return}
+        returningFunctionForcolor((model?.theme1)!)
     }
     @IBAction func theme2Picked(_ sender: UIButton) {
         self.view.backgroundColor = model?.theme2
         UserDefaults.saveColorToUD(color: (model?.theme2)!)
+        
+        guard let returningFunctionForcolor = colorToReturn else {return}
+        returningFunctionForcolor((model?.theme2)!)
     }
     @IBAction func theme3Picked(_ sender: UIButton) {
         self.view.backgroundColor = model?.theme3
         UserDefaults.saveColorToUD(color: (model?.theme3)!)
+        
+        guard let returningFunctionForcolor = colorToReturn else {return}
+        returningFunctionForcolor((model?.theme3)!)
     }
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -54,5 +67,6 @@ extension ThemesViewController {
     func setupButton(button : UIButton) {
         button.layer.borderWidth = 1.5;
         button.layer.cornerRadius = 7;
+        button.tintColor = .black
     }
 }

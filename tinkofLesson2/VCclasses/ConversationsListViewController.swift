@@ -33,7 +33,12 @@ class ConversationsListViewController: UIViewController {
             if let indexPath = mainTabView.indexPathForSelectedRow {
                 destinationVC.opponentName = getname(indexPath: indexPath)
             }
-        } /*else if segue.identifier == "themeID" {
+        } else if let destinationVC = segue.destination as? ThemesViewController {
+                destinationVC.colorToReturn = {(dataReturned) -> ()in
+                    self.logThemeChanging(selectedTheme: dataReturned)
+                }
+        }
+        /*else if segue.identifier == "themeID" {
             let destinationVC = segue.destination as! ThemesViewController
             destinationVC.delegate = self
         }*/
@@ -75,12 +80,14 @@ extension ConversationsListViewController : ThemesViewControllerDelegate {
         UserDefaults.saveColorToUD(color: selectedTheme)
         UINavigationBar.appearance().barTintColor = UserDefaults.takeColor()
     }
-    
+}
+*/
+extension ConversationsListViewController {
     func logThemeChanging(selectedTheme: UIColor) {
         print(selectedTheme)
     }
 }
-*/
+
 extension ConversationsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
