@@ -116,7 +116,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
+
     func swipe() {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left

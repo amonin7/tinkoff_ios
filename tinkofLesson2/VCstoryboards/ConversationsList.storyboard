@@ -80,6 +80,16 @@
                         <viewLayoutGuide key="safeArea" id="LTN-uB-NwY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TEE-hK-bA5">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="p3S-5F-wmb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bz4-iN-mz7">
+                                <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="theme32"/>
+                                <connections>
+                                    <action selector="themePickerButonPressed:" destination="r6n-89-Arw" eventType="touchUpInside" id="k98-SC-mhH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="MwS-6b-smo">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="1Ad-6q-vN5">
                                 <rect key="frame" x="222" y="6" width="137" height="32"/>
@@ -96,11 +106,20 @@
                     <connections>
                         <outlet property="mainTabView" destination="iVQ-Pa-oJV" id="olF-wy-foY"/>
                         <segue destination="jzK-Sr-xGu" kind="presentation" identifier="profileID" modalPresentationStyle="pageSheet" modalTransitionStyle="coverVertical" id="R8E-Pr-Y54"/>
+                        <segue destination="jBr-Ev-bpi" kind="presentation" identifier="themeID" id="xZS-Ob-4Xf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NuZ-8v-Ntl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="927.20000000000005" y="160.56971514242881"/>
+        </scene>
+        <!--ThemePickerVC-->
+        <scene sceneID="o31-Ot-U04">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ThemePickerVC" id="jBr-Ev-bpi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oT0-vV-anr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-127"/>
         </scene>
         <!--Main-->
         <scene sceneID="B3x-2X-dfV">
@@ -108,7 +127,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="jzK-Sr-xGu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LR2-ez-zTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720" y="39"/>
+            <point key="canvasLocation" x="1699" y="138"/>
         </scene>
         <!--OnlyChat-->
         <scene sceneID="oFU-h7-4td">
@@ -116,7 +135,7 @@
                 <viewControllerPlaceholder storyboardName="OnlyChat" id="kij-ty-k6h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jil-5r-xND" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="282"/>
+            <point key="canvasLocation" x="1721" y="411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oed-2Q-FPh">
@@ -138,6 +157,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="theme32" width="32" height="32"/>
         <image name="userIcon32" width="32" height="32"/>
     </resources>
 </document>

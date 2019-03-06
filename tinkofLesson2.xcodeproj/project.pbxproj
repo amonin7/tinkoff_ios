@@ -16,6 +16,9 @@
 		2E2D68D822147D53002C389B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68D622147D53002C389B /* Main.storyboard */; };
 		2E2D68DA22147D55002C389B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68D922147D55002C389B /* Assets.xcassets */; };
 		2E2D68DD22147D55002C389B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68DB22147D55002C389B /* LaunchScreen.storyboard */; };
+		2E7703D5222EC62300CCEF88 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703D4222EC62300CCEF88 /* Themes.m */; };
+		2E7703DC222EC7CB00CCEF88 /* ThemePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */; };
+		2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703DD223004F300CCEF88 /* ThemesViewController.swift */; };
 		2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED46D3822244B9000445B20 /* messages&userData.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,14 @@
 		2E2D68D922147D55002C389B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E2D68DC22147D55002C389B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E2D68DE22147D55002C389B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7703D2222EC62300CCEF88 /* tinkofLesson2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tinkofLesson2-Bridging-Header.h"; sourceTree = "<group>"; };
+		2E7703D3222EC62300CCEF88 /* Themes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Themes.h; sourceTree = "<group>"; };
+		2E7703D4222EC62300CCEF88 /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
+		2E7703D6222EC64300CCEF88 /* ThemesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
+		2E7703D7222EC64300CCEF88 /* ThemesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
+		2E7703DA222EC69D00CCEF88 /* ThemesViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewControllerDelegate.h; sourceTree = "<group>"; };
+		2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemePickerVC.storyboard; sourceTree = "<group>"; };
+		2E7703DD223004F300CCEF88 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2ED46D3822244B9000445B20 /* messages&userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "messages&userData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +62,9 @@
 				2E2D68D422147D53002C389B /* ProfileViewController.swift */,
 				2E2C9CB72222C081004EF5EC /* ConversationsListViewController.swift */,
 				2E2C9CB92222C096004EF5EC /* oneChatViewController.swift */,
+				2E7703D6222EC64300CCEF88 /* ThemesViewController.h */,
+				2E7703D7222EC64300CCEF88 /* ThemesViewController.m */,
+				2E7703DD223004F300CCEF88 /* ThemesViewController.swift */,
 			);
 			path = VCclasses;
 			sourceTree = "<group>";
@@ -61,6 +75,7 @@
 				2E2D68D622147D53002C389B /* Main.storyboard */,
 				2E2C9CB32222BF44004EF5EC /* ConversationsList.storyboard */,
 				2E2C9CB52222BF6A004EF5EC /* OnlyChat.storyboard */,
+				2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */,
 			);
 			path = VCstoryboards;
 			sourceTree = "<group>";
@@ -87,9 +102,9 @@
 				2E2C9CBC2222C2C1004EF5EC /* VCstoryboards */,
 				2E2C9CBB2222C298004EF5EC /* VCclasses */,
 				2ED46D3A2224504900445B20 /* Data */,
+				2E2D68D222147D53002C389B /* AppDelegate.swift */,
 				2E2D68DB22147D55002C389B /* LaunchScreen.storyboard */,
 				2E2D68DE22147D55002C389B /* Info.plist */,
-				2E2D68D222147D53002C389B /* AppDelegate.swift */,
 				2E2D68D922147D55002C389B /* Assets.xcassets */,
 			);
 			path = tinkofLesson2;
@@ -99,6 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				2ED46D3822244B9000445B20 /* messages&userData.swift */,
+				2E7703D3222EC62300CCEF88 /* Themes.h */,
+				2E7703D4222EC62300CCEF88 /* Themes.m */,
+				2E7703DA222EC69D00CCEF88 /* ThemesViewControllerDelegate.h */,
+				2E7703D2222EC62300CCEF88 /* tinkofLesson2-Bridging-Header.h */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -135,6 +154,7 @@
 				TargetAttributes = {
 					2E2D68CE22147D53002C389B = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -164,6 +184,7 @@
 				2E2D68DD22147D55002C389B /* LaunchScreen.storyboard in Resources */,
 				2E2D68DA22147D55002C389B /* Assets.xcassets in Resources */,
 				2E2C9CB42222BF44004EF5EC /* ConversationsList.storyboard in Resources */,
+				2E7703DC222EC7CB00CCEF88 /* ThemePickerVC.storyboard in Resources */,
 				2E2C9CB62222BF6A004EF5EC /* OnlyChat.storyboard in Resources */,
 				2E2D68D822147D53002C389B /* Main.storyboard in Resources */,
 			);
@@ -179,8 +200,10 @@
 				2E2D68D522147D53002C389B /* ProfileViewController.swift in Sources */,
 				2E2C9CB82222C081004EF5EC /* ConversationsListViewController.swift in Sources */,
 				2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */,
+				2E7703D5222EC62300CCEF88 /* Themes.m in Sources */,
 				2E2D68D322147D53002C389B /* AppDelegate.swift in Sources */,
 				2E2C9CBA2222C096004EF5EC /* oneChatViewController.swift in Sources */,
+				2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +349,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4WS8YA4HU;
 				INFOPLIST_FILE = tinkofLesson2/Info.plist;
@@ -335,6 +360,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.tinkofLesson2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tinkofLesson2/Data/tinkofLesson2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -344,6 +371,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4WS8YA4HU;
 				INFOPLIST_FILE = tinkofLesson2/Info.plist;
@@ -353,6 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.tcsbank.tinkofLesson2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tinkofLesson2/Data/tinkofLesson2-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

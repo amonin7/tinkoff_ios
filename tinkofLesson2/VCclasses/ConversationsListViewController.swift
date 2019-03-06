@@ -12,6 +12,9 @@ class ConversationsListViewController: UIViewController {
     
     @IBOutlet weak var mainTabView: UITableView!
     
+    @IBAction func themePickerButonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "themeID", sender: "mainUserProfile")
+    }
     @IBAction func profileButton(_ sender: Any) {
         performSegue(withIdentifier: "profileID", sender: "mainUserProfile")
     }
@@ -30,13 +33,16 @@ class ConversationsListViewController: UIViewController {
             if let indexPath = mainTabView.indexPathForSelectedRow {
                 destinationVC.opponentName = getname(indexPath: indexPath)
             }
-            //print(sender)
-        }
+        } /*else if segue.identifier == "themeID" {
+            let destinationVC = segue.destination as! ThemesViewController
+            destinationVC.delegate = self
+        }*/
     }
     
     func setupTV() {
         navigationItem.title = "Tinkoff Chat"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = UserDefaults.takeColor()
         getData()
     }
 
@@ -60,7 +66,21 @@ extension ConversationsListViewController: UITableViewDataSource {
     
     
 }
-
+/*
+extension ConversationsListViewController : ThemesViewControllerDelegate {
+    func themesViewController(_ controller: ThemesViewController, didSelectTheme selectedTheme: UIColor) {
+        logThemeChanging(selectedTheme: selectedTheme)
+        //navigationController?.navigationBar.barTintColor = selectedTheme
+        //UINavigationBar.appearance().barTintColor = selectedTheme
+        UserDefaults.saveColorToUD(color: selectedTheme)
+        UINavigationBar.appearance().barTintColor = UserDefaults.takeColor()
+    }
+    
+    func logThemeChanging(selectedTheme: UIColor) {
+        print(selectedTheme)
+    }
+}
+*/
 extension ConversationsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -202,43 +222,33 @@ class Mycell: UITableViewCell, ConversationCellConfiguration {
 }
 
 func getname(indexPath: IndexPath) -> String {
-    var name: String?
-    if indexPath.row == 0 {
-        name = "user1"
-    }
-    if indexPath.row == 1 {
-        name = "user2"
-    }
-    if indexPath.row == 2 {
-        name = "user3"
-    }
-    if indexPath.row == 3 {
-        name = "user4"
-    }
-    if indexPath.row == 4 {
-        name = "user5"
-    }
-    if indexPath.row == 5 {
-        name = "user6"
-    }
-    if indexPath.row == 6 {
-        name = "user7"
-    }
-    if indexPath.row == 7 {
-        name = "user8"
-    }
-    if indexPath.row == 8 {
-        name = "user9"
-    }
-    if indexPath.row == 9 {
-        name = "user10"
-    }
-    if indexPath.row == 10 {
-        name = "user11"
-    }
-    if indexPath.row == 11 {
-        name = "user12"
-    }
-    return name ?? "no user detected"
+    return "user\(indexPath.row + 1)"
 }
 
+
+extension UserDefaults {
+    class func saveColorToUD(color: UIColor) {
+        let colorToSetAsDefault : UIColor = color
+        let data2 : NSData? = try! NSKeyedArchiver.archivedData(withRootObject: colorToSetAsDefault, requiringSecureCoding: false) as NSData?
+        UserDefaults.standard.set(data2, forKey: "userHeadingColor")
+        
+        UserDefaults.standard.synchronize()
+        
+    }
+    class func takeColor() -> UIColor {
+        let data = UserDefaults.standard.value(forKey: "userHeadingColor") as! Data
+        if let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+        {
+            return color as! UIColor
+        } else {
+            return .gray
+        }
+    }
+    
+}
+
+extension ConversationsListViewController {
+    class func reset() {
+        UINavigationBar.appearance().barTintColor = UserDefaults.takeColor()
+    }
+}
