@@ -16,6 +16,7 @@
 		2E2D68D822147D53002C389B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68D622147D53002C389B /* Main.storyboard */; };
 		2E2D68DA22147D55002C389B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68D922147D55002C389B /* Assets.xcassets */; };
 		2E2D68DD22147D55002C389B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2D68DB22147D55002C389B /* LaunchScreen.storyboard */; };
+		2E63884322399F85007FCDAF /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E63884222399F85007FCDAF /* data.swift */; };
 		2E7703D5222EC62300CCEF88 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703D4222EC62300CCEF88 /* Themes.m */; };
 		2E7703DC222EC7CB00CCEF88 /* ThemePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */; };
 		2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703DD223004F300CCEF88 /* ThemesViewController.swift */; };
@@ -34,6 +35,7 @@
 		2E2D68D922147D55002C389B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E2D68DC22147D55002C389B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E2D68DE22147D55002C389B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E63884222399F85007FCDAF /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		2E7703D2222EC62300CCEF88 /* tinkofLesson2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tinkofLesson2-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E7703D3222EC62300CCEF88 /* Themes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Themes.h; sourceTree = "<group>"; };
 		2E7703D4222EC62300CCEF88 /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		2ED46D3A2224504900445B20 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2E63884222399F85007FCDAF /* data.swift */,
 				2ED46D3822244B9000445B20 /* messages&userData.swift */,
 				2E7703D3222EC62300CCEF88 /* Themes.h */,
 				2E7703D4222EC62300CCEF88 /* Themes.m */,
@@ -204,6 +207,7 @@
 				2E2D68D322147D53002C389B /* AppDelegate.swift in Sources */,
 				2E2C9CBA2222C096004EF5EC /* oneChatViewController.swift in Sources */,
 				2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */,
+				2E63884322399F85007FCDAF /* data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

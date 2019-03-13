@@ -45,6 +45,8 @@ class ConversationsListViewController: UIViewController {
     }
     
     func setupTV() {
+        
+        
         navigationItem.title = "Tinkoff Chat"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = UserDefaults.takeColor()
@@ -236,10 +238,14 @@ func getname(indexPath: IndexPath) -> String {
 extension UserDefaults {
     class func saveColorToUD(color: UIColor) {
         let colorToSetAsDefault : UIColor = color
-        let data2 : NSData? = try! NSKeyedArchiver.archivedData(withRootObject: colorToSetAsDefault, requiringSecureCoding: false) as NSData?
-        UserDefaults.standard.set(data2, forKey: "userHeadingColor")
-        
-        UserDefaults.standard.synchronize()
+        if let data2 = try! NSKeyedArchiver.archivedData(withRootObject: colorToSetAsDefault, requiringSecureCoding: false) as NSData?
+        {
+            UserDefaults.standard.set(data2, forKey: "userHeadingColor")
+            UserDefaults.standard.synchronize()
+        } else {
+            print("error")
+        }
+
         
     }
     class func takeColor() -> UIColor {
