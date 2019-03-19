@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nRZ-XF-uHB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="585"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="incomeCell" rowHeight="120" id="Qmj-yq-pG0" customClass="IncomeCell" customModule="tinkofLesson2" customModuleProvider="target">
@@ -84,13 +84,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-c3-nIS">
+                                <rect key="frame" x="16" y="621" width="281" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-oa-0LP">
+                                <rect key="frame" x="313" y="621" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nRZ-XF-uHB" firstAttribute="top" secondItem="NZx-ub-BQr" secondAttribute="top" id="0XE-uc-ivH"/>
+                            <constraint firstItem="Wdz-c3-nIS" firstAttribute="top" secondItem="nRZ-XF-uHB" secondAttribute="bottom" constant="16" id="24c-YQ-IK7"/>
                             <constraint firstItem="nRZ-XF-uHB" firstAttribute="leading" secondItem="NZx-ub-BQr" secondAttribute="leading" id="2YW-cO-fYE"/>
                             <constraint firstItem="NZx-ub-BQr" firstAttribute="trailing" secondItem="nRZ-XF-uHB" secondAttribute="trailing" id="AMc-cI-6cd"/>
-                            <constraint firstItem="NZx-ub-BQr" firstAttribute="bottom" secondItem="nRZ-XF-uHB" secondAttribute="bottom" id="h3W-fD-khT"/>
+                            <constraint firstItem="0bU-oa-0LP" firstAttribute="leading" secondItem="Wdz-c3-nIS" secondAttribute="trailing" constant="16" id="Cc9-EN-1JV"/>
+                            <constraint firstItem="0bU-oa-0LP" firstAttribute="bottom" secondItem="NZx-ub-BQr" secondAttribute="bottom" constant="-16" id="FgL-fB-3uM"/>
+                            <constraint firstItem="Wdz-c3-nIS" firstAttribute="leading" secondItem="NZx-ub-BQr" secondAttribute="leading" constant="16" id="PjJ-jg-sQV"/>
+                            <constraint firstItem="NZx-ub-BQr" firstAttribute="trailing" secondItem="0bU-oa-0LP" secondAttribute="trailing" constant="16" id="e5z-JG-nLy"/>
+                            <constraint firstItem="NZx-ub-BQr" firstAttribute="bottom" secondItem="Wdz-c3-nIS" secondAttribute="bottom" constant="16" id="tPZ-Nl-KQf"/>
+                            <constraint firstItem="0bU-oa-0LP" firstAttribute="top" secondItem="nRZ-XF-uHB" secondAttribute="bottom" constant="16" id="z6v-vH-k1Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NZx-ub-BQr"/>
                     </view>

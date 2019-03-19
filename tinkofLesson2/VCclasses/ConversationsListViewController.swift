@@ -7,8 +7,15 @@
 //
 
 import UIKit
+//import Communicators
 
-class ConversationsListViewController: UIViewController {
+class ConversationsListViewController: UIViewController, ManagerDelegate {
+    
+    lazy var users = [Blabber]()
+    
+    var multicomm = MultipeerCommunicator()
+
+    let cm = CommunicationManager.shared
     
     @IBOutlet weak var mainTabView: UITableView!
     
@@ -52,38 +59,36 @@ class ConversationsListViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UserDefaults.takeColor()
         getData()
     }
+    
+    func globalUpdate() {
+        // Заполняем местный массив:
+        users = Array(CommunicationManager.shared.listOfBlabbers.values)
+        //  sortBlabbers()
+        mainTabView.reloadData()
+    }
+    
 
 }
 
 extension ConversationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return users.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as! Mycell
-        cell.configire(indexPath: indexPath)
+        cell.configire(indexPath: indexPath, users : users)
         return cell
 
     }
     
     
 }
-/*
-extension ConversationsListViewController : ThemesViewControllerDelegate {
-    func themesViewController(_ controller: ThemesViewController, didSelectTheme selectedTheme: UIColor) {
-        logThemeChanging(selectedTheme: selectedTheme)
-        //navigationController?.navigationBar.barTintColor = selectedTheme
-        //UINavigationBar.appearance().barTintColor = selectedTheme
-        UserDefaults.saveColorToUD(color: selectedTheme)
-        UINavigationBar.appearance().barTintColor = UserDefaults.takeColor()
-    }
-}
-*/
+
 extension ConversationsListViewController {
     func logThemeChanging(selectedTheme: UIColor) {
         print(selectedTheme)
@@ -129,96 +134,18 @@ class Mycell: UITableViewCell, ConversationCellConfiguration {
     
     @IBOutlet weak var dateAndTimeLabel: UILabel!
     
-    func configire(indexPath: IndexPath) {
+    func configire(indexPath: IndexPath, users : [Blabber] ) {
         
         nicknameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         
         messageLabel.textColor = .gray
         
-        if indexPath.row == 0 {
-            name = "user1"
-            message = user1MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 1 {
-            name = "user2"
-            message = user2MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 2 {
-            name = "user3"
-            message = user3MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 3 {
-            name = "user4"
-            message = user4MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 4 {
-            name = "user5"
-            message = user5MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 5 {
-            name = "user6"
-            message = user6MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 6 {
-            name = "user7"
-            message = user7MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 7 {
-            name = "user8"
-            message = user8MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 8 {
-            name = "user9"
-            message = user9MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 9 {
-            name = "user10"
-            message = user10MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 10 {
-            name = "user11"
-            message = user11MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
-        if indexPath.row == 11 {
-            name = "user12"
-            message = user12MH[user1MH.count - 1].text
-            hasUnreadMessages = user1MH[user1MH.count - 1].is_read
-            date = user1MH[user1MH.count - 1].date
-            online = true
-        }
+        name = users[indexPath.row].name
+        
+        message = user1MH[user1MH.count - 1].text
+        hasUnreadMessages = user1MH[user1MH.count - 1].is_read
+        date = user1MH[user1MH.count - 1].date
+        online = true
         
         nicknameLabel.text = name
         messageLabel.text = message
@@ -249,9 +176,9 @@ extension UserDefaults {
         
     }
     class func takeColor() -> UIColor {
-        let data = UserDefaults.standard.value(forKey: "userHeadingColor") as! Data
-        if let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
+        if let data = try! UserDefaults.standard.value(forKey: "userHeadingColor")
         {
+            let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data)
             return color as! UIColor
         } else {
             return .gray
@@ -265,3 +192,6 @@ extension ConversationsListViewController {
         UINavigationBar.appearance().barTintColor = UserDefaults.takeColor()
     }
 }
+
+
+

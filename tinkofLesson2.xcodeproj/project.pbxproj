@@ -21,6 +21,7 @@
 		2E7703DC222EC7CB00CCEF88 /* ThemePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */; };
 		2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703DD223004F300CCEF88 /* ThemesViewController.swift */; };
 		2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED46D3822244B9000445B20 /* messages&userData.swift */; };
+		2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7F8B9224162FD001B718D /* Communicators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemePickerVC.storyboard; sourceTree = "<group>"; };
 		2E7703DD223004F300CCEF88 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2ED46D3822244B9000445B20 /* messages&userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "messages&userData.swift"; sourceTree = "<group>"; };
+		2ED7F8B9224162FD001B718D /* Communicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				2E2D68D422147D53002C389B /* ProfileViewController.swift */,
 				2E2C9CB72222C081004EF5EC /* ConversationsListViewController.swift */,
+				2ED7F8B9224162FD001B718D /* Communicators.swift */,
 				2E2C9CB92222C096004EF5EC /* oneChatViewController.swift */,
 				2E7703D6222EC64300CCEF88 /* ThemesViewController.h */,
 				2E7703D7222EC64300CCEF88 /* ThemesViewController.m */,
@@ -203,6 +206,7 @@
 				2E2D68D522147D53002C389B /* ProfileViewController.swift in Sources */,
 				2E2C9CB82222C081004EF5EC /* ConversationsListViewController.swift in Sources */,
 				2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */,
+				2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */,
 				2E7703D5222EC62300CCEF88 /* Themes.m in Sources */,
 				2E2D68D322147D53002C389B /* AppDelegate.swift in Sources */,
 				2E2C9CBA2222C096004EF5EC /* oneChatViewController.swift in Sources */,

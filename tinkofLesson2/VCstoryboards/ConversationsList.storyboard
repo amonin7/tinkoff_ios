@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iVQ-Pa-oJV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="100" id="XEK-RJ-2Af" customClass="Mycell" customModule="tinkofLesson2" customModuleProvider="target">
@@ -69,12 +69,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-Jo-tDS">
+                                <rect key="frame" x="8" y="623" width="359" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectButton:" destination="r6n-89-Arw" eventType="touchUpInside" id="goE-GO-BPu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LTN-uB-NwY" firstAttribute="bottom" secondItem="iVQ-Pa-oJV" secondAttribute="bottom" id="EUv-yJ-TfP"/>
+                            <constraint firstItem="fu4-Jo-tDS" firstAttribute="top" secondItem="iVQ-Pa-oJV" secondAttribute="bottom" constant="8" id="11S-QQ-UUU"/>
+                            <constraint firstItem="LTN-uB-NwY" firstAttribute="trailing" secondItem="fu4-Jo-tDS" secondAttribute="trailing" constant="8" id="BgA-ch-Z9o"/>
+                            <constraint firstItem="fu4-Jo-tDS" firstAttribute="leading" secondItem="LTN-uB-NwY" secondAttribute="leading" constant="8" id="Dr5-mm-HIT"/>
                             <constraint firstItem="LTN-uB-NwY" firstAttribute="trailing" secondItem="iVQ-Pa-oJV" secondAttribute="trailing" id="TaJ-MX-BwM"/>
+                            <constraint firstItem="LTN-uB-NwY" firstAttribute="bottom" secondItem="fu4-Jo-tDS" secondAttribute="bottom" constant="8" id="UvT-uJ-dkN"/>
                             <constraint firstItem="iVQ-Pa-oJV" firstAttribute="leading" secondItem="LTN-uB-NwY" secondAttribute="leading" id="Wf7-mN-pzH"/>
+                            <constraint firstItem="fu4-Jo-tDS" firstAttribute="top" secondItem="iVQ-Pa-oJV" secondAttribute="bottom" constant="8" id="lI3-Ne-Z68"/>
                             <constraint firstItem="iVQ-Pa-oJV" firstAttribute="top" secondItem="LTN-uB-NwY" secondAttribute="top" id="tSe-H0-n4Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LTN-uB-NwY"/>
