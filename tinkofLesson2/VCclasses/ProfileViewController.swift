@@ -5,8 +5,56 @@
 //  Created by Andrey Minin on 13/02/2019.
 //  Copyright © 2019 Andrey Minin. All rights reserved.
 //
-
+import Foundation
 import UIKit
+
+import CoreData
+
+class StorageManager: NSObject {
+    
+    // Init core data stack:
+    var coreDataStack = CoreDataStack()
+    
+    // Save function:
+    func saveProfile(profile: ProfileViewController, completion: @escaping (Error?) -> Void) {
+        let appUser = AppUser.findOrInsertUser(in: coreDataStack.saveContext)
+        
+        self.coreDataStack.saveContext.perform {
+            appUser?.name = profile.nibName
+            //appUser?.info = profile.description
+            //appUser?.image = profile.profileImage.jpegData(compressionQuality: 1.0)
+            
+            // For Multipeer:
+            UserDefaults.standard.set(profile.nibName, forKey: "profileName")
+            
+            self.coreDataStack.performSave(with: self.coreDataStack.saveContext) { (error) in
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    // Load function:
+    func readProfile(completion: @escaping (ProfileViewController) -> ()) {
+        let appUser = AppUser.findOrInsertUser(in: coreDataStack.mainContext)
+        let profile: ProfileViewController
+        let name = appUser?.name ?? "Пользователь \(UIDevice.current.name)"
+        let description = appUser?.info ?? ""
+        let image: UIImage
+        
+        //Image handling:
+        if let imageData = appUser?.image {
+            image = UIImage(data: imageData) ?? UIImage(named: "placeholder-user")!
+        } else {
+            image = UIImage(named: "placeholder-user")!
+        }
+        
+        
+    }
+}
+
+
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -217,10 +265,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         editButton.layer.cornerRadius = editButton.frame.height / 4.5
 
     }
+    var cds = CoreDataStack()
     func saveData() {
         //activityIndicatorView.startAnimating()
         var isSaved: Bool = true
         
+        let appusr = AppUser.insertAppUser(in: cds.mainContext)
+        do {
+            try cds.mainContext.save()
+        } catch {
+            print(error)
+        }
+        print(appusr ?? "lost")
+        //
+        
+        
+        let model = cds.managedObjectModel
+        let fetchRequest = AppUser.fetchRequestAppUser(model: model)
+        let result = try! cds.mainContext.fetch(fetchRequest!)
+        print(result.first!.name ?? "noname")
         
         let name = self.userNameNew.text!
         let photo = self.profileImage.image!

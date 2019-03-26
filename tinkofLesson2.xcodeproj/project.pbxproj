@@ -20,6 +20,8 @@
 		2E7703D5222EC62300CCEF88 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703D4222EC62300CCEF88 /* Themes.m */; };
 		2E7703DC222EC7CB00CCEF88 /* ThemePickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */; };
 		2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703DD223004F300CCEF88 /* ThemesViewController.swift */; };
+		2ECCACA4224ABA1A00858DE1 /* FileForCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */; };
+		2ECCACA7224ABA3D00858DE1 /* coreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCACA5224ABA3D00858DE1 /* coreDataModel.xcdatamodeld */; };
 		2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED46D3822244B9000445B20 /* messages&userData.swift */; };
 		2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7F8B9224162FD001B718D /* Communicators.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		2E7703DA222EC69D00CCEF88 /* ThemesViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewControllerDelegate.h; sourceTree = "<group>"; };
 		2E7703DB222EC7CB00CCEF88 /* ThemePickerVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThemePickerVC.storyboard; sourceTree = "<group>"; };
 		2E7703DD223004F300CCEF88 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileForCoreData.swift; sourceTree = "<group>"; };
+		2ECCACA6224ABA3D00858DE1 /* coreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2ED46D3822244B9000445B20 /* messages&userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "messages&userData.swift"; sourceTree = "<group>"; };
 		2ED7F8B9224162FD001B718D /* Communicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +112,8 @@
 				2E2C9CBB2222C298004EF5EC /* VCclasses */,
 				2ED46D3A2224504900445B20 /* Data */,
 				2E2D68D222147D53002C389B /* AppDelegate.swift */,
+				2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */,
+				2ECCACA5224ABA3D00858DE1 /* coreDataModel.xcdatamodeld */,
 				2E2D68DB22147D55002C389B /* LaunchScreen.storyboard */,
 				2E2D68DE22147D55002C389B /* Info.plist */,
 				2E2D68D922147D55002C389B /* Assets.xcassets */,
@@ -205,8 +211,10 @@
 			files = (
 				2E2D68D522147D53002C389B /* ProfileViewController.swift in Sources */,
 				2E2C9CB82222C081004EF5EC /* ConversationsListViewController.swift in Sources */,
+				2ECCACA4224ABA1A00858DE1 /* FileForCoreData.swift in Sources */,
 				2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */,
 				2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */,
+				2ECCACA7224ABA3D00858DE1 /* coreDataModel.xcdatamodeld in Sources */,
 				2E7703D5222EC62300CCEF88 /* Themes.m in Sources */,
 				2E2D68D322147D53002C389B /* AppDelegate.swift in Sources */,
 				2E2C9CBA2222C096004EF5EC /* oneChatViewController.swift in Sources */,
@@ -418,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2ECCACA5224ABA3D00858DE1 /* coreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2ECCACA6224ABA3D00858DE1 /* coreDataModel.xcdatamodel */,
+			);
+			currentVersion = 2ECCACA6224ABA3D00858DE1 /* coreDataModel.xcdatamodel */;
+			path = coreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E2D68C722147D53002C389B /* Project object */;
 }

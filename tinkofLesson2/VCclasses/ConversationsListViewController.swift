@@ -176,7 +176,7 @@ extension UserDefaults {
         
     }
     class func takeColor() -> UIColor {
-        if let data = try! UserDefaults.standard.value(forKey: "userHeadingColor")
+        if let data = UserDefaults.standard.value(forKey: "userHeadingColor")
         {
             let color = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data as! Data)
             return color as! UIColor
