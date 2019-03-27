@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-typealias SaveComplition = () -> Void
+typealias SaveComplition = (Error?) -> ()
 
 class CoreDataStack {
     var storeURL: URL {
@@ -17,25 +17,18 @@ class CoreDataStack {
         
         return documentsURL.appendingPathComponent("mystor.sqlite")
     }
-    lazy var masterContext: NSManagedObjectContext = {
-        var masterContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        
-        masterContext.persistentStoreCoordinator = self.persistentStoreCoordinator
-        
-        masterContext.mergePolicy = NSOverwriteMergePolicy
-        
-        return masterContext
-    }()
-    init() {
+    
+    /*init() {
         dataModelName = "coreDataModel"
         dataModelExtension = "momd"
-        saveContext = masterContext
-    }
-    var dataModelName = "coreDataTrain"
+        //saveContext = masterContext
+    }*/
+    
+    var dataModelName = "coreDataModel"
     
     var dataModelExtension = "momd"
     
-    let saveContext: NSManagedObjectContext
+    //let saveContext: NSManagedObjectContext
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         let modeUrl = Bundle.main.url(forResource: self.dataModelName, withExtension: self.dataModelExtension)!
@@ -57,23 +50,36 @@ class CoreDataStack {
         return coordinator
     }()
     
-    
-    
-    
+    lazy var masterContext: NSManagedObjectContext = {
+        var masterContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        
+        masterContext.persistentStoreCoordinator = self.persistentStoreCoordinator
+        masterContext.mergePolicy = NSOverwriteMergePolicy
+        
+        return masterContext
+    }()
     
     lazy var mainContext: NSManagedObjectContext = {
         var mainContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         
-        //mainContext.parent = self.masterContext
-        mainContext.persistentStoreCoordinator = self.persistentStoreCoordinator
+        mainContext.parent = self.masterContext
         mainContext.mergePolicy = NSOverwriteMergePolicy
         
         return mainContext
     }()
     
-    func performSave(with context: NSManagedObjectContext, completion: SaveComplition? = nil) {
+    lazy var saveContext: NSManagedObjectContext = {
+        var saveContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        
+        saveContext.parent = self.mainContext
+        saveContext.mergePolicy = NSOverwriteMergePolicy
+        
+        return saveContext
+    }()
+    
+    func performSave(with context: NSManagedObjectContext, completion: @escaping ((Error?)->())) {
         guard context.hasChanges else {
-            completion?()
+            completion(nil)
             return
         }
         
@@ -87,7 +93,7 @@ class CoreDataStack {
             if let parentContext = context.parent {
                 self.performSave(with: parentContext, completion: completion)
             } else {
-                completion?()
+                completion(nil)
             }
         }
     }
@@ -105,7 +111,7 @@ extension AppUser {
     
     
     
-    static func findOrInsertUser(in context : NSManagedObjectContext) -> AppUser? {
+    static func findOrInsertAppUser(in context : NSManagedObjectContext) -> AppUser? {
         guard let model = context.persistentStoreCoordinator?.managedObjectModel else {
             print("model is not available in context")
             assert(false)

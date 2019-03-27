@@ -10,53 +10,22 @@ import UIKit
 
 import CoreData
 
-class StorageManager: NSObject {
+
+class UserProfile {
+    var name: String
+    var description: String
+    var profileImage: UIImage
     
-    // Init core data stack:
-    var coreDataStack = CoreDataStack()
-    
-    // Save function:
-    func saveProfile(profile: ProfileViewController, completion: @escaping (Error?) -> Void) {
-        let appUser = AppUser.findOrInsertUser(in: coreDataStack.saveContext)
-        
-        self.coreDataStack.saveContext.perform {
-            appUser?.name = profile.nibName
-            //appUser?.info = profile.description
-            //appUser?.image = profile.profileImage.jpegData(compressionQuality: 1.0)
-            
-            // For Multipeer:
-            UserDefaults.standard.set(profile.nibName, forKey: "profileName")
-            
-            self.coreDataStack.performSave(with: self.coreDataStack.saveContext) { (error) in
-                DispatchQueue.main.async {
-                    completion(error)
-                }
-            }
-        }
-    }
-    
-    // Load function:
-    func readProfile(completion: @escaping (ProfileViewController) -> ()) {
-        let appUser = AppUser.findOrInsertUser(in: coreDataStack.mainContext)
-        let profile: ProfileViewController
-        let name = appUser?.name ?? "Пользователь \(UIDevice.current.name)"
-        let description = appUser?.info ?? ""
-        let image: UIImage
-        
-        //Image handling:
-        if let imageData = appUser?.image {
-            image = UIImage(data: imageData) ?? UIImage(named: "placeholder-user")!
-        } else {
-            image = UIImage(named: "placeholder-user")!
-        }
-        
-        
+    init (name: String, descr: String, profImag: UIImage) {
+        self.name = name
+        self.description = descr
+        self.profileImage = profImag
     }
 }
 
-
-
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let stManager = StorageManager()
 
     @IBOutlet var backBut: UIButton!
     
@@ -77,6 +46,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var editButton: UIButton!
+    
+    lazy var usProf = UserProfile(name: "default", descr: "no descr", profImag: #imageLiteral(resourceName: "userProfileImage"))
     
     @IBAction func editButtonTap(_ sender: Any) {
         editVCLoad()
@@ -347,7 +318,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
             }
         }
+ 
+        //stManager.saveProfile(profile: usProf, completion: nil)
     }
     
 }
-

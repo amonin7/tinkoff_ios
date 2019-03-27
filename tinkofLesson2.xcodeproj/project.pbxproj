@@ -22,6 +22,7 @@
 		2E7703E42230626700CCEF88 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7703DD223004F300CCEF88 /* ThemesViewController.swift */; };
 		2ECCACA4224ABA1A00858DE1 /* FileForCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */; };
 		2ECCACA7224ABA3D00858DE1 /* coreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCACA5224ABA3D00858DE1 /* coreDataModel.xcdatamodeld */; };
+		2ECCACA9224BAE3C00858DE1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECCACA8224BAE3C00858DE1 /* StorageManager.swift */; };
 		2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED46D3822244B9000445B20 /* messages&userData.swift */; };
 		2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7F8B9224162FD001B718D /* Communicators.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		2E7703DD223004F300CCEF88 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileForCoreData.swift; sourceTree = "<group>"; };
 		2ECCACA6224ABA3D00858DE1 /* coreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2ECCACA8224BAE3C00858DE1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2ED46D3822244B9000445B20 /* messages&userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "messages&userData.swift"; sourceTree = "<group>"; };
 		2ED7F8B9224162FD001B718D /* Communicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				2ED46D3A2224504900445B20 /* Data */,
 				2E2D68D222147D53002C389B /* AppDelegate.swift */,
 				2ECCACA3224ABA1A00858DE1 /* FileForCoreData.swift */,
+				2ECCACA8224BAE3C00858DE1 /* StorageManager.swift */,
 				2ECCACA5224ABA3D00858DE1 /* coreDataModel.xcdatamodeld */,
 				2E2D68DB22147D55002C389B /* LaunchScreen.storyboard */,
 				2E2D68DE22147D55002C389B /* Info.plist */,
@@ -212,6 +215,7 @@
 				2E2D68D522147D53002C389B /* ProfileViewController.swift in Sources */,
 				2E2C9CB82222C081004EF5EC /* ConversationsListViewController.swift in Sources */,
 				2ECCACA4224ABA1A00858DE1 /* FileForCoreData.swift in Sources */,
+				2ECCACA9224BAE3C00858DE1 /* StorageManager.swift in Sources */,
 				2ED46D3922244B9000445B20 /* messages&userData.swift in Sources */,
 				2ED7F8BA224162FD001B718D /* Communicators.swift in Sources */,
 				2ECCACA7224ABA3D00858DE1 /* coreDataModel.xcdatamodeld in Sources */,
